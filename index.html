@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareRing | Communication Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <span class="brand-icon">✳</span>
+                <h2>carering<span>.</span></h2>
+            </div>
+
+            <p class="menu-label">WORKSPACE</p>
+
+            <nav class="navigation">
+
+                <a href="#overview" class="nav-link active">
+                    <span>⌂</span> Overview
+                </a>
+
+                <a href="#profile" class="nav-link">
+                    <span>♙</span> User Profile
+                </a>
+
+                <a href="#gestures" class="nav-link">
+                    <span>↝</span> Gestures
+                </a>
+
+                <a href="#device" class="nav-link">
+                    <span>◉</span> Device Connection
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="help-card">
+                    <span>✳</span>
+                    <p>Communication<br>made personal.</p>
+                </div>
+
+                <p class="version">CARERING · PROTOTYPE 01</p>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Topbar (visible across views) -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">ASSISTIVE COMMUNICATION PLATFORM</p>
+                    <h1>Good afternoon.</h1>
+                    <p class="subtitle">A little more understanding, every day.</p>
+                </div>
+
+                <div class="profile-avatar">C</div>
+
+            </header>
+
+
+            <!-- OVERVIEW PAGE -->
+            <section class="page-section active" id="overview">
+
+                <!-- Welcome Section -->
+                <div class="welcome-section">
+
+                    <div>
+                        <p class="section-label">YOUR WORKSPACE</p>
+
+                        <h2>
+                            Care begins with<br>
+                            <em>understanding.</em>
+                        </h2>
+
+                        <p class="welcome-description">
+                            Manage communication preferences,
+                            gestures and your connected wristband.
+                        </p>
+                    </div>
+
+                    <div class="welcome-decoration">
+                        <span>✳</span>
+                        <p>Designed for<br>every voice.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Status Section -->
+                <section class="status-grid">
+
+                    <div class="info-card">
+
+                        <div class="card-heading">
+                            <span class="card-icon">♙</span>
+                            <span class="card-tag">PROFILE</span>
+                        </div>
+
+                        <h3>User Profile</h3>
+
+                        <p>Manage user information and preferences.</p>
+
+                        <a href="#profile" class="text-link">
+                            View profile →
+                        </a>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="card-heading">
+                            <span class="card-icon">⌁</span>
+                            <span class="card-tag">DEVICE</span>
+                        </div>
+
+                        <h3>Wristband Status</h3>
+
+                        <div class="connection-status">
+                            <span class="status-dot"></span>
+                            Not connected
+                        </div>
+
+                        <p>ESP32 connection status.</p>
+
+                        <a href="#device" class="text-link">
+                            Connect device →
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Gesture Recognition -->
+                <section class="gesture-section">
+
+                    <div class="section-header">
+
+                        <div>
+                            <p class="section-label">LIVE COMMUNICATION</p>
+                            <h2>Gesture recognition</h2>
+                        </div>
+
+                        <span class="live-indicator">
+                            <span class="status-dot"></span>
+                            Awaiting input
+                        </span>
+
+                    </div>
+
+
+                    <div class="gesture-display">
+
+                        <div class="gesture-number">
+                            <span>LAST DETECTED GESTURE</span>
+                            <h2>--</h2>
+                        </div>
+
+                        <div class="gesture-message">
+                            <p>COMMUNICATION OUTPUT</p>
+                            <h3>Waiting for a gesture...</h3>
+                            <span>
+                                The identified sentence will appear here.
+                            </span>
+                        </div>
+
+                        <div class="speech-icon">
+                            ♪
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+            <!-- END OVERVIEW PAGE -->
+
+
+            <!-- USER PROFILE PAGE -->
+            <section class="page-section profile-section" id="profile">
+
+                <div class="section-header">
+
+                    <div>
+                        <p class="section-label">PERSONAL INFORMATION</p>
+                        <h2>User Profile</h2>
+                    </div>
+
+                    <span class="profile-status" id="profileStatus">
+                        Not configured
+                    </span>
+
+                </div>
+
+
+                <div class="profile-layout">
+
+                    <!-- Profile Form -->
+                    <div class="profile-form-card">
+
+                        <h3>Profile details</h3>
+
+                        <p class="form-description">
+                            Set up the communication profile for the wristband user.
+                        </p>
+
+                        <form id="profileForm">
+
+                            <div class="form-group">
+
+                                <label for="userName">Full name</label>
+
+                                <input
+                                    type="text"
+                                    id="userName"
+                                    placeholder="Enter user's name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="userAge">Age</label>
+
+                                <input
+                                    type="number"
+                                    id="userAge"
+                                    placeholder="Enter age"
+                                    min="1"
+                                    max="120"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="userLanguage">Preferred language</label>
+
+                                <select id="userLanguage" required>
+
+                                    <option value="">Select a language</option>
+                                    <option value="English">English</option>
+                                    <option value="Malayalam">Malayalam</option>
+                                    <option value="Hindi">Hindi</option>
+                                    <option value="Tamil">Tamil</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="userPreferences">
+                                    Communication preferences
+                                </label>
+
+                                <textarea
+                                    id="userPreferences"
+                                    placeholder="Add any communication preferences..."
+                                    rows="4"
+                                ></textarea>
+
+                            </div>
+
+
+                            <button type="submit" class="save-button">
+                                Save profile →
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- Profile Preview -->
+                    <div class="profile-preview">
+
+                        <div class="preview-avatar" id="previewAvatar">?</div>
+
+                        <p class="preview-label">USER OVERVIEW</p>
+
+                        <h3 id="previewName">New user</h3>
+
+                        <p class="preview-age" id="previewAge">
+                            Age not specified
+                        </p>
+
+                        <div class="preview-divider"></div>
+
+                        <div class="preview-detail">
+                            <span>Preferred language</span>
+                            <strong id="previewLanguage">Not selected</strong>
+                        </div>
+
+                        <div class="preview-detail">
+                            <span>Communication preferences</span>
+                            <strong id="previewPreferences">Not added</strong>
+                        </div>
+
+                        <p class="preview-note">
+                            This profile helps caregivers personalise the
+                            CareRing communication experience.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- END USER PROFILE PAGE -->
+
+
+            <!-- GESTURES PAGE (Placeholder for next feature) -->
+            <section class="page-section" id="gestures">
+
+                <div class="section-header">
+                    <div>
+                        <p class="section-label">PERSONALISED COMMUNICATION</p>
+                        <h2>Gesture management</h2>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Gesture library</h3>
+                    <p>
+                        Your predefined movements and personalised
+                        communication phrases will be managed here.
+                    </p>
+                </div>
+
+            </section>
+            <!-- END GESTURES PAGE -->
+
+
+            <!-- DEVICE CONNECTION PAGE (Placeholder for next feature) -->
+            <section class="page-section" id="device">
+
+                <div class="section-header">
+                    <div>
+                        <p class="section-label">HARDWARE CONNECTION</p>
+                        <h2>Device connection</h2>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>ESP32 wristband</h3>
+
+                    <div class="connection-status">
+                        <span class="status-dot"></span>
+                        Not connected
+                    </div>
+
+                    <p>
+                        Connect your CareRing wristband to begin
+                        receiving gesture information.
+                    </p>
+                </div>
+
+            </section>
+            <!-- END DEVICE PAGE -->
+
+
+            <!-- Footer -->
+            <footer>
+                <p>CareRing · Making communication accessible.</p>
+                <p>Prototype 1.0</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,705 @@
+
+/* ------------------------------
+   1. BASIC SETTINGS
+-------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F5F3EA;
+    color: #343B2C;
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+:root {
+    --cream: #F5F4EC;
+    --sage: #E4E8D9;
+    --olive: #737F50;
+    --forest: #343D2D;
+    --terracotta: #B96D4C;
+    --sand: #D9D5C2;
+    --muted: #777B6B;
+    --white: #FFFEFA;
+}
+
+
+
+/* ------------------------------
+   2. MAIN LAYOUT
+-------------------------------- */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ------------------------------
+   3. SIDEBAR
+-------------------------------- */
+
+.sidebar {
+    width: 245px;
+    background-color: #343B2C;
+    color: var(--cream);
+    padding: 32px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 65px;
+}
+
+.brand h2 {
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.brand h2 span {
+    color: #B9C18E;
+}
+
+.brand-icon {
+    color: #B9C18E;
+    font-size: 27px;
+}
+
+.menu-label,
+.section-label,
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.7px;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.menu-label {
+    color: #A8AE98;
+    margin-bottom: 20px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #C9CBBB;
+    padding: 13px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.nav-link span {
+    font-size: 19px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #4B563C;
+    color: #FFFFFF;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.help-card {
+    background-color: #4B563C;
+    padding: 19px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+}
+
+.help-card span {
+    color: #C0C99D;
+    font-size: 23px;
+}
+
+.help-card p {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.version {
+    font-size: 9px;
+    color: #A8AE98;
+    letter-spacing: 1px;
+}
+
+
+/* ------------------------------
+   4. MAIN CONTENT
+-------------------------------- */
+
+.main-content {
+    flex: 1;
+    padding: 38px 55px;
+    min-width: 0;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+}
+
+.topbar h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.profile-avatar {
+    width: 43px;
+    height: 43px;
+    background-color: var(--olive);
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+}
+
+
+/* ------------------------------
+   5. WELCOME SECTION
+-------------------------------- */
+
+.welcome-section {
+    background-color: #E5E8D8;
+    border-radius: 16px;
+    padding: 35px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    min-height: 220px;
+}
+
+.welcome-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 43px);
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.welcome-section h2 em {
+    color: var(--olive);
+}
+
+.welcome-description {
+    color: #777B69;
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 390px;
+}
+
+.welcome-decoration {
+    width: 145px;
+    height: 145px;
+    background-color: #D5DBC4;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.welcome-decoration span {
+    font-size: 32px;
+    color: var(--olive);
+}
+
+.welcome-decoration p {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-top: 6px;
+}
+
+
+/* ------------------------------
+   6. INFORMATION CARDS
+-------------------------------- */
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.info-card {
+    background-color: var(--white);
+    border: 1px solid #E9E7DD;
+    border-radius: 14px;
+    padding: 23px;
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.card-icon {
+    width: 37px;
+    height: 37px;
+    background-color: var(--sage);
+    color: var(--olive);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+}
+
+.card-tag {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+}
+
+.info-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.text-link {
+    display: inline-block;
+    color: var(--olive);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 18px;
+}
+
+.text-link:hover {
+    color: var(--forest);
+}
+
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #C28B48;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+/* ------------------------------
+   7. GESTURE DISPLAY
+-------------------------------- */
+
+.gesture-section {
+    margin-top: 15px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 12px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin-top: 8px;
+}
+
+.live-indicator {
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.gesture-display {
+    background-color: var(--forest);
+    color: var(--cream);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.gesture-number span,
+.gesture-message p {
+    color: #BEC5A9;
+    font-size: 9px;
+    letter-spacing: 1.4px;
+}
+
+.gesture-number h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.gesture-message {
+    flex: 1;
+}
+
+.gesture-message h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.gesture-message span {
+    color: #BEC5A9;
+    font-size: 11px;
+}
+
+.speech-icon {
+    background-color: #4B563C;
+    color: #D2D9BA;
+    border-radius: 50%;
+    width: 53px;
+    height: 53px;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+}
+
+
+/* ------------------------------
+   8. FOOTER
+-------------------------------- */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #E3E0D5;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* ------------------------------
+   9. RESPONSIVE DESIGN
+-------------------------------- */
+
+@media (max-width: 850px) {
+
+    .sidebar {
+        width: 190px;
+        padding: 25px 15px;
+    }
+
+    .main-content {
+        padding: 30px 25px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .brand {
+        margin-bottom: 18px;
+    }
+
+    .navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        padding: 9px;
+        font-size: 11px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .main-content {
+        padding: 25px 18px;
+    }
+
+    .welcome-section {
+        padding: 25px;
+    }
+
+    .welcome-decoration {
+        display: none;
+    }
+
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gesture-display {
+        flex-wrap: wrap;
+        padding: 22px;
+    }
+
+    .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+}
+/* USER PROFILE SECTION */
+
+.profile-section {
+    margin-top: 55px;
+    padding-top: 30px;
+    border-top: 1px solid #E3E0D5;
+    scroll-margin-top: 25px;
+}
+
+.profile-status {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--sage);
+    padding: 8px 13px;
+    border-radius: 20px;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 22px;
+    margin-top: 22px;
+}
+
+.profile-form-card,
+.profile-preview {
+    padding: 27px;
+    border-radius: 15px;
+}
+
+.profile-form-card {
+    background: var(--white);
+    border: 1px solid #E9E7DD;
+}
+
+.profile-form-card h3,
+.profile-preview h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.form-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 9px 0 25px;
+}
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #DADDD0;
+    border-radius: 8px;
+    background: #FAFAF5;
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--olive);
+    box-shadow: 0 0 0 3px #737F501A;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.save-button {
+    width: 100%;
+    padding: 13px;
+    background: var(--forest);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.save-button:hover {
+    background: var(--olive);
+}
+
+.profile-preview {
+    background: var(--sage);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.preview-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--olive);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 22px;
+}
+
+.preview-label {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 9px;
+}
+
+.profile-preview h3 {
+    font-size: 27px;
+}
+
+.preview-age {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.preview-divider {
+    width: 100%;
+    height: 1px;
+    background: #C9D0B9;
+    margin: 23px 0;
+}
+
+.preview-detail {
+    width: 100%;
+    margin-bottom: 19px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.preview-detail span {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.preview-detail strong {
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.preview-note {
+    font-size: 11px;
+    line-height: 1.8;
+    color: #737B60;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+@media (max-width: 700px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+     
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+}
