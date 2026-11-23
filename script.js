@@ -108,3 +108,6 @@ if (savedProfile) {
         console.error("Error loading profile:", error);
     }
 }
+
+console.log("THUNA Desktop:", window.thuna.appName);
+console.log("Operating System:", window.thuna.platform);
