@@ -84,18 +84,31 @@ if (profileForm) {
             preferences: document.getElementById("userPreferences").value.trim()
         };
 
-        localStorage.setItem("careRingUser", JSON.stringify(user));
+        localStorage.setItem("thunaUser", JSON.stringify(user));
+        localStorage.removeItem("careRingUser");
         displayProfile(user);
 
         alert("Profile saved successfully!");
     });
 }
 
-const savedProfile = localStorage.getItem("careRingUser");
+function loadSavedProfile() {
+    const rawThuna = localStorage.getItem("thunaUser");
+    const rawLegacy = localStorage.getItem("careRingUser");
+    const rawProfile = rawThuna || rawLegacy;
 
-if (savedProfile) {
+    if (!rawProfile) {
+        return;
+    }
+
     try {
-        const user = JSON.parse(savedProfile);
+        const user = JSON.parse(rawProfile);
+
+        // Migrate legacy CareRing profile storage once valid JSON is confirmed
+        if (!rawThuna && rawLegacy) {
+            localStorage.setItem("thunaUser", rawLegacy);
+            localStorage.removeItem("careRingUser");
+        }
 
         document.getElementById("userName").value = user.name || "";
         document.getElementById("userAge").value = user.age || "";
@@ -107,4 +120,11 @@ if (savedProfile) {
     } catch (error) {
         console.error("Error loading profile:", error);
     }
+}
+
+loadSavedProfile();
+
+if (window.thuna) {
+    console.log("THUNA Desktop:", window.thuna.appName);
+    console.log("Operating System:", window.thuna.platform);
 }

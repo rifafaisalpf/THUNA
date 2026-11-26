@@ -1,7 +1,61 @@
+/* ========================================
+   THUNA — WARM EARTHY DESIGN SYSTEM
+   Beige + Terracotta + Olive
+======================================== */
 
-/* ------------------------------
+:root {
+    /* Core palette */
+    --color-background: #F6F0E7;
+    --color-card: #FFFFFF;
+    --color-sand: #E6D5C3;
+    --color-terracotta: #C98769;
+    --color-olive: #929B78;
+    --color-text: #49483F;
+
+    /* Text */
+    --color-heading: #49483F;
+    --color-body: #49483F;
+    --color-muted: #817D70;
+
+    /* Borders and surfaces */
+    --color-border: #E6D5C3;
+    --color-surface: #FFFFFF;
+    --color-surface-soft: #F1E7DA;
+
+    /* Actions */
+    --color-primary: #929B78;
+    --color-primary-hover: #7F8966;
+    --color-accent: #C98769;
+
+    /* Compatibility aliases used throughout the stylesheet */
+    --color-canvas: #F6F0E7;
+    --color-inkwell: #E6D5C3;
+    --color-mist: #49483F;
+    --color-lilac-haze: #817D70;
+    --color-dusk: #F1E7DA;
+    --color-tracer: #C98769;
+    --color-ember: #929B78;
+    --color-amber: #C98769;
+
+    /* Recognition states */
+    --color-success: #71815D;
+    --color-warning: #C98769;
+    --color-error: #A64F45;
+
+    /* Typography */
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: Arial, Helvetica, sans-serif;
+
+    /* Shape and depth */
+    --radius-card: 14px;
+    --radius-button: 8px;
+    --shadow-card: 0 5px 20px rgba(73, 72, 63, 0.06);
+}
+
+
+/* ========================================
    1. BASIC SETTINGS
--------------------------------- */
+======================================== */
 
 * {
     margin: 0;
@@ -9,48 +63,57 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #F5F3EA;
-    color: #343B2C;
-    font-family: 'DM Sans', sans-serif;
+    background: var(--color-background);
+    color: var(--color-heading);
+    font-family: var(--font-body);
+    min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
 }
 
 
-:root {
-    --cream: #F5F4EC;
-    --sage: #E4E8D9;
-    --olive: #737F50;
-    --forest: #343D2D;
-    --terracotta: #B96D4C;
-    --sand: #D9D5C2;
-    --muted: #777B6B;
-    --white: #FFFEFA;
-}
-
-
-
-/* ------------------------------
+/* ========================================
    2. MAIN LAYOUT
--------------------------------- */
+======================================== */
 
 .app-container {
     display: flex;
     min-height: 100vh;
+    background: var(--color-background);
 }
 
 
-/* ------------------------------
+/* ========================================
    3. SIDEBAR
--------------------------------- */
+======================================== */
 
 .sidebar {
     width: 245px;
-    background-color: #343B2C;
-    color: var(--cream);
+    background: var(--color-sand);
+    color: var(--color-text);
     padding: 32px 22px;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+    border-right: 1px solid rgba(73, 72, 63, 0.07);
 }
 
 .brand {
@@ -64,14 +127,15 @@ body {
     font-size: 25px;
     font-weight: 600;
     letter-spacing: -1px;
+    color: var(--color-heading);
 }
 
-.brand h2 span {
-    color: #B9C18E;
+.brand h2 span,
+.brand-icon {
+    color: var(--color-terracotta);
 }
 
 .brand-icon {
-    color: #B9C18E;
     font-size: 27px;
 }
 
@@ -81,11 +145,11 @@ body {
     font-size: 10px;
     letter-spacing: 1.7px;
     font-weight: 700;
-    color: var(--muted);
+    color: var(--color-muted);
 }
 
 .menu-label {
-    color: #A8AE98;
+    color: var(--color-muted);
     margin-bottom: 20px;
 }
 
@@ -97,14 +161,14 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #C9CBBB;
+    color: var(--color-text);
     padding: 13px;
     border-radius: 9px;
     display: flex;
     align-items: center;
     gap: 13px;
     font-size: 13px;
-    transition: 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
 
 .nav-link span {
@@ -113,8 +177,8 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    background-color: #4B563C;
-    color: #FFFFFF;
+    background: rgba(201, 135, 105, 0.16);
+    color: #89563F;
 }
 
 .sidebar-bottom {
@@ -122,14 +186,15 @@ body {
 }
 
 .help-card {
-    background-color: #4B563C;
+    background: var(--color-surface-soft);
     padding: 19px;
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     margin-bottom: 28px;
 }
 
 .help-card span {
-    color: #C0C99D;
+    color: var(--color-terracotta);
     font-size: 23px;
 }
 
@@ -137,23 +202,25 @@ body {
     margin-top: 10px;
     font-size: 13px;
     line-height: 1.6;
+    color: var(--color-text);
 }
 
 .version {
     font-size: 9px;
-    color: #A8AE98;
+    color: var(--color-muted);
     letter-spacing: 1px;
 }
 
 
-/* ------------------------------
+/* ========================================
    4. MAIN CONTENT
--------------------------------- */
+======================================== */
 
 .main-content {
     flex: 1;
     padding: 38px 55px;
     min-width: 0;
+    background: var(--color-background);
 }
 
 .topbar {
@@ -165,16 +232,18 @@ body {
 
 .eyebrow {
     margin-bottom: 12px;
+    color: var(--color-muted);
 }
 
 .topbar h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 30px;
     font-weight: 500;
+    color: var(--color-heading);
 }
 
 .subtitle {
-    color: var(--muted);
+    color: var(--color-muted);
     font-size: 13px;
     margin-top: 7px;
 }
@@ -182,22 +251,24 @@ body {
 .profile-avatar {
     width: 43px;
     height: 43px;
-    background-color: var(--olive);
-    color: white;
+    background: var(--color-sand);
+    color: var(--color-terracotta);
     border-radius: 50%;
     display: grid;
     place-items: center;
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 19px;
 }
 
 
-/* ------------------------------
+/* ========================================
    5. WELCOME SECTION
--------------------------------- */
+======================================== */
 
 .welcome-section {
-    background-color: #E5E8D8;
+    background: var(--color-surface-soft);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
     border-radius: 16px;
     padding: 35px 40px;
     display: flex;
@@ -205,22 +276,28 @@ body {
     align-items: center;
     margin-bottom: 25px;
     min-height: 220px;
+    overflow: hidden;
+}
+
+.welcome-section .eyebrow {
+    color: #98664D;
 }
 
 .welcome-section h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: clamp(30px, 4vw, 43px);
     font-weight: 500;
     line-height: 1.2;
     margin: 15px 0;
+    color: var(--color-heading);
 }
 
 .welcome-section h2 em {
-    color: var(--olive);
+    color: var(--color-terracotta);
 }
 
 .welcome-description {
-    color: #777B69;
+    color: var(--color-muted);
     font-size: 13px;
     line-height: 1.8;
     max-width: 390px;
@@ -229,7 +306,8 @@ body {
 .welcome-decoration {
     width: 145px;
     height: 145px;
-    background-color: #D5DBC4;
+    background: rgba(201, 135, 105, 0.10);
+    border: 1px solid rgba(201, 135, 105, 0.28);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -241,19 +319,20 @@ body {
 
 .welcome-decoration span {
     font-size: 32px;
-    color: var(--olive);
+    color: var(--color-terracotta);
 }
 
 .welcome-decoration p {
+    color: var(--color-text);
     font-size: 10px;
     line-height: 1.5;
     margin-top: 6px;
 }
 
 
-/* ------------------------------
+/* ========================================
    6. INFORMATION CARDS
--------------------------------- */
+======================================== */
 
 .status-grid {
     display: grid;
@@ -263,10 +342,17 @@ body {
 }
 
 .info-card {
-    background-color: var(--white);
-    border: 1px solid #E9E7DD;
-    border-radius: 14px;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
     padding: 23px;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 25px rgba(73, 72, 63, 0.10);
 }
 
 .card-heading {
@@ -279,8 +365,8 @@ body {
 .card-icon {
     width: 37px;
     height: 37px;
-    background-color: var(--sage);
-    color: var(--olive);
+    background: #F1E7DA;
+    color: var(--color-olive);
     border-radius: 10px;
     display: grid;
     place-items: center;
@@ -288,28 +374,29 @@ body {
 }
 
 .card-tag {
-    color: var(--muted);
+    color: var(--color-muted);
     font-size: 9px;
     letter-spacing: 1.3px;
     font-weight: 700;
 }
 
 .info-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 8px;
+    color: var(--color-heading);
 }
 
 .info-card p {
     font-size: 12px;
-    color: var(--muted);
+    color: var(--color-body);
     line-height: 1.6;
 }
 
 .text-link {
     display: inline-block;
-    color: var(--olive);
+    color: #71815D;
     text-decoration: none;
     font-size: 12px;
     font-weight: 700;
@@ -317,7 +404,8 @@ body {
 }
 
 .text-link:hover {
-    color: var(--forest);
+    color: var(--color-primary-hover);
+    text-decoration: underline;
 }
 
 .connection-status {
@@ -327,20 +415,21 @@ body {
     font-size: 12px;
     font-weight: 600;
     margin: 10px 0;
+    color: var(--color-body);
 }
 
 .status-dot {
     width: 8px;
     height: 8px;
-    background-color: #C28B48;
+    background: var(--color-warning);
     border-radius: 50%;
     display: inline-block;
 }
 
 
-/* ------------------------------
+/* ========================================
    7. GESTURE DISPLAY
--------------------------------- */
+======================================== */
 
 .gesture-section {
     margin-top: 15px;
@@ -355,24 +444,26 @@ body {
 }
 
 .section-header h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-weight: 500;
     font-size: 25px;
     margin-top: 8px;
+    color: var(--color-heading);
 }
 
 .live-indicator {
     font-size: 11px;
-    color: var(--muted);
+    color: var(--color-body);
     display: flex;
     align-items: center;
     gap: 7px;
 }
 
 .gesture-display {
-    background-color: var(--forest);
-    color: var(--cream);
+    background: var(--color-sand);
+    color: var(--color-text);
     padding: 30px;
+    border: 1px solid var(--color-border);
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
@@ -382,13 +473,14 @@ body {
 
 .gesture-number span,
 .gesture-message p {
-    color: #BEC5A9;
+    color: var(--color-muted);
     font-size: 9px;
     letter-spacing: 1.4px;
 }
 
 .gesture-number h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
+    color: var(--color-terracotta);
     font-size: 48px;
     font-weight: 500;
     margin-top: 8px;
@@ -399,20 +491,22 @@ body {
 }
 
 .gesture-message h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
+    color: var(--color-heading);
     font-size: 22px;
     font-weight: 500;
     margin: 12px 0;
 }
 
 .gesture-message span {
-    color: #BEC5A9;
+    color: var(--color-muted);
     font-size: 11px;
 }
 
 .speech-icon {
-    background-color: #4B563C;
-    color: #D2D9BA;
+    background: rgba(201, 135, 105, 0.15);
+    color: #89563F;
+    border: 1px solid rgba(201, 135, 105, 0.30);
     border-radius: 50%;
     width: 53px;
     height: 53px;
@@ -422,9 +516,46 @@ body {
 }
 
 
-/* ------------------------------
-   8. FOOTER
--------------------------------- */
+/* ========================================
+   8. BUTTONS
+======================================== */
+
+button,
+.save-button {
+    transition: background 0.2s, transform 0.2s;
+}
+
+.save-button {
+    width: 100%;
+    padding: 13px;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--radius-button);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-terracotta);
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   9. FOOTER
+======================================== */
 
 footer {
     display: flex;
@@ -432,18 +563,225 @@ footer {
     gap: 12px;
     margin-top: 35px;
     padding-top: 20px;
-    border-top: 1px solid #E3E0D5;
-    color: var(--muted);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
     font-size: 10px;
 }
 
 
-/* ------------------------------
-   9. RESPONSIVE DESIGN
--------------------------------- */
+/* ========================================
+   10. USER PROFILE
+======================================== */
+
+.profile-section {
+    margin-top: 55px;
+    padding-top: 30px;
+    border-top: 1px solid var(--color-border);
+    scroll-margin-top: 25px;
+}
+
+.profile-status {
+    font-size: 11px;
+    color: #536B43;
+    background: #E8EDDF;
+    padding: 8px 13px;
+    border-radius: 20px;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 22px;
+    margin-top: 22px;
+}
+
+.profile-form-card,
+.profile-preview {
+    padding: 27px;
+    border-radius: var(--radius-card);
+}
+
+.profile-form-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+.profile-form-card h3,
+.profile-preview h3 {
+    font-family: var(--font-heading);
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.profile-form-card h3 {
+    color: var(--color-heading);
+}
+
+.form-description {
+    color: var(--color-body);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 9px 0 25px;
+}
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: #FAF7F1;
+    color: var(--color-heading);
+    font-family: var(--font-body);
+    font-size: 13px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-olive);
+    box-shadow: 0 0 0 3px rgba(146, 155, 120, 0.17);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.profile-preview {
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.preview-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--color-sand);
+    color: var(--color-terracotta);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-heading);
+    font-size: 28px;
+    margin-bottom: 22px;
+}
+
+.preview-label {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--color-muted);
+    margin-bottom: 9px;
+}
+
+.profile-preview h3 {
+    font-size: 27px;
+    color: var(--color-heading);
+}
+
+.preview-age {
+    color: var(--color-body);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.preview-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--color-border);
+    margin: 23px 0;
+}
+
+.preview-detail {
+    width: 100%;
+    margin-bottom: 19px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.preview-detail span {
+    font-size: 10px;
+    color: var(--color-muted);
+}
+
+.preview-detail strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-heading);
+    overflow-wrap: anywhere;
+}
+
+.preview-note {
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--color-body);
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+
+/* ========================================
+   11. PAGE VISIBILITY
+======================================== */
+
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+}
+
+
+/* ========================================
+   12. STATUS COLOURS
+======================================== */
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: #98664D;
+}
+
+.error {
+    color: var(--color-error);
+}
+
+.secondary-text {
+    color: var(--color-muted);
+}
+
+
+/* ========================================
+   13. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1000px) {
+    .main-content {
+        padding: 32px 30px;
+    }
+}
 
 @media (max-width: 850px) {
-
     .sidebar {
         width: 190px;
         padding: 25px 15px;
@@ -453,10 +791,12 @@ footer {
         padding: 30px 25px;
     }
 
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {
-
     .app-container {
         flex-direction: column;
     }
@@ -514,192 +854,17 @@ footer {
         flex-direction: column;
     }
 
-}
-/* USER PROFILE SECTION */
-
-.profile-section {
-    margin-top: 55px;
-    padding-top: 30px;
-    border-top: 1px solid #E3E0D5;
-    scroll-margin-top: 25px;
-}
-
-.profile-status {
-    font-size: 11px;
-    color: var(--muted);
-    background: var(--sage);
-    padding: 8px 13px;
-    border-radius: 20px;
-}
-
-.profile-layout {
-    display: grid;
-    grid-template-columns: 1.3fr 0.9fr;
-    gap: 22px;
-    margin-top: 22px;
-}
-
-.profile-form-card,
-.profile-preview {
-    padding: 27px;
-    border-radius: 15px;
-}
-
-.profile-form-card {
-    background: var(--white);
-    border: 1px solid #E9E7DD;
-}
-
-.profile-form-card h3,
-.profile-preview h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 23px;
-    font-weight: 500;
-}
-
-.form-description {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.7;
-    margin: 9px 0 25px;
-}
-
-.form-group {
-    margin-bottom: 19px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #DADDD0;
-    border-radius: 8px;
-    background: #FAFAF5;
-    color: var(--forest);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    outline: none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--olive);
-    box-shadow: 0 0 0 3px #737F501A;
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.save-button {
-    width: 100%;
-    padding: 13px;
-    background: var(--forest);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.save-button:hover {
-    background: var(--olive);
-}
-
-.profile-preview {
-    background: var(--sage);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.preview-avatar {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: var(--olive);
-    color: white;
-    display: grid;
-    place-items: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    margin-bottom: 22px;
-}
-
-.preview-label {
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    color: var(--muted);
-    margin-bottom: 9px;
-}
-
-.profile-preview h3 {
-    font-size: 27px;
-}
-
-.preview-age {
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 5px;
-}
-
-.preview-divider {
-    width: 100%;
-    height: 1px;
-    background: #C9D0B9;
-    margin: 23px 0;
-}
-
-.preview-detail {
-    width: 100%;
-    margin-bottom: 19px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.preview-detail span {
-    font-size: 10px;
-    color: var(--muted);
-}
-
-.preview-detail strong {
-    font-size: 13px;
-    font-weight: 600;
-    overflow-wrap: anywhere;
-}
-
-.preview-note {
-    font-size: 11px;
-    line-height: 1.8;
-    color: #737B60;
-    margin-top: auto;
-    padding-top: 15px;
-}
-
-@media (max-width: 700px) {
     .profile-layout {
         grid-template-columns: 1fr;
     }
 }
 
-     
-.page-section {
-    display: none;
-}
-
-.page-section.active {
-    display: block;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }

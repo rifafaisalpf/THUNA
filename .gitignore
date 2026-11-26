@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.local
+hardware/secrets.h
+
+# Build output
+dist/
+out/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Debug logs
+npm-debug.log*
